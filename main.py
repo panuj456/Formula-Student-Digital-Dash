@@ -2,18 +2,7 @@ import time
 import sys
 import OOreceive as rec
 import CANpyqt5displays as dis
-
-
-	#while loop with Qtimer or counter and update labels 
-'''lst_0x360 = rec.CAN_Comms.get_0x360()
-		for item in lst_0x360:
-		data_pos = 0
-		channel_pos = 1
-	'''
-		#concatenate strings into one data or separate and create another pyQT thing
-		#pass
-	#lst_0x360 = "TPS"
-
+from PyQt5.QtCore import QTimer #QTimer
 	
 # -----------------Solution 1 ----------#
 '''Problem here is that values will update on pyqt app window
@@ -56,10 +45,30 @@ while flag == False:
 	window.display_update()
 	app.exec() #problem lies here
 	window.show()
-	
 	mainIterationNum += 1	
-	
 
+'''	
+#20-11-24 new code to test 'https://stackoverflow.com/questions/41819082/updating-pyqt-label'
+def main():
+	app = dis.QApplication(dis.sys.argv)
+	window = dis.MainWindow()
+
+	CAN_line = rec.CAN_Comms(window)
+	msg = CAN_line.update_CAN()
+	CAN_line.main(CAN_line)  
+	flag = False
+	mainIterationNum = 0
+
+	timer = QTimer()
+    timer.timeout.connect(CAN_line.main())
+	timer.setSingleShot(False)
+    timer.start(1000)
+
+	sys.exit(app.exec_())
+
+if __name__ == '__main__':
+	main()
+'''
 
 '''
 # -----------------Solution 2 ----------#

@@ -1,7 +1,7 @@
 import PyQt5 #pip install PyQt5
 import sys
 
-from PyQt5.QtCore import QTimer #QTimer
+
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import (
@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
         #widget.setAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
         #self.setCentralWidget(widget)
 
- #------update GUI code-----#
+        #------update GUI code-----#
         self.i = 0
         default = "N/A"
         # add QLabel
@@ -106,9 +106,11 @@ class MainWindow(QMainWindow):
         self.qLbl_Gear.move(300,250)
         self.qLbl_Gear_txt = QLabel("Gear : ",self)
         self.qLbl_Gear_txt.move(10,250)
+        self.show() #sets the main window to the screen size "https://stackoverflow.com/questions/41819082/updating-pyqt-label"
             
 
     def set_labelValue(self,data,channel):
+        # function called in OOrecieve.py 
         if channel == 'Manifold Pressure (kPa)':
             self.qLbl_ManifoldPressure.setText(str(data))
         if channel == 'RPM':
