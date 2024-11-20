@@ -9,7 +9,7 @@ you should see after app is closed the CAN runs normally).
 
 The best methodology to follow going forward is how people got animation to work and to just ignore player input perhaps.
 Anyway, back on topic, after reading many forums I believe I will have to learn how to perform threading in pyqt5, 
-I can't do that this evening unfortunately. Basically what threading does is creates sorta a channel for things to 
+it is a little out of my scope. Basically what threading does is creates sort of a channel for things to 
 update in the background whilst the app window runs. Really weird and I cant really get my head around it right now, 
 and I probably will need a lot of help. If you can find a better solution lmk cause my brain is ded rn and i need sleep.
 
