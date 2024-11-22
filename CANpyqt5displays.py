@@ -38,28 +38,6 @@ class MainWindow(QMainWindow):
         #self.setCentralWidget(self.qLbl
 
         self.setup_txt(default)
-        
-        '''
-        self.timer = QTimer()  #from python guis tutorial on threading refer and adjust ltr
-        self.timer.setInterval(1000)
-        self.timer.setSingleShot(False)
-        self.timer.timeout.connect(self.recurring_timer, self.display_update)
-        self.timer.start()
-        '''
-        
-    def recurring_timer(self):  #from python guis tutorial on threading refer and adjust ltr
-        self.counter +=1
-        #self.l.setText("Counter: %d" % self.counter)
-        '''
-        # make QTimer
-        self.qTimer = QTimer()
-        # set interval to 1 s
-        self.qTimer.setInterval(1000) # 1000 ms = 1 s
-        # connect timeout signal to signal handler
-        self.qTimer.timeout.connect(self.getSensorValue)
-        # start timer
-        self.qTimer.start()
-        '''
 
     def setup_txt(self,default):
         self.qLbl_RPM = QLabel(default,self)
@@ -135,24 +113,6 @@ class MainWindow(QMainWindow):
             self.qLbl_GearSelePos.setText(str(data))
         if channel == 'Gear - Can be cobined with selector pos (enum)':
             self.qLbl_Gear.setText(str(data))
-    
-    '''   
-    def execute_this_fn(self):  #from python guis tutorial on threading refer and adjust ltr
-        print("Hello!")
-
-    def oh_no(self): #from python guis tutorial on threading refer and adjust ltr
-        # Pass the function to execute
-        worker = Worker(self.execute_this_fn) # Any other args, kwargs are passed to the run function
-
-        # Execute
-        self.threadpool.start(worker)
-    '''        
 
     def display_update(self):
         self.show()
-        #self.qLbl_Voltage.repaint() #not the problem
-            
-        #self.processEvents()
-            
-
-#design displays without specified values, only layouts and getting screen positioning correct, then in main, use the CAN data in form of parameters to make the gauages change to match CAN values
