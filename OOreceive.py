@@ -2,7 +2,7 @@ import os
 import can
 import math
 from functools import reduce
-
+#27/11/24
 class CAN_Comms():
 
     def __init__(self, window):
@@ -288,5 +288,17 @@ class CAN_Comms():
                 self.window.set_labelValue(data,channel)
             print("0x476 works")
         
-        def run(self):
-            self.main(self)
+        #window.display_update()
+
+        #while loop with Qtimer or counter and update labels 
+        '''lst_0x360 = rec.CAN_Comms.get_0x360()
+        for item in lst_0x360:
+            data_pos = 0
+            channel_pos = 1
+        '''
+            #concatenate strings into one data or separate and create another pyQT thing
+            #pass
+        #lst_0x360 = "TPS"
+        
+    def run(self):
+        self.main(self)
